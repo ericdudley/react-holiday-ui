@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save react-holiday-ui
+npm install react-holiday-ui
 ```
 
 ## Examples
@@ -16,14 +16,14 @@ See examples at https://ericdudley.github.io/react-holiday-ui
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import MyComponent from 'react-holiday-ui'
-import 'react-holiday-ui/dist/index.css'
+import { Christmas } from 'react-holiday-ui';
+import 'react-holiday-ui/dist/index.css';
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Christmas />
   }
 }
 ```
