@@ -10,6 +10,9 @@
 npm install --save react-holiday-ui
 ```
 
+## Examples
+See examples at https://ericdudley.github.io/react-holiday-ui
+
 ## Usage
 
 ```tsx
