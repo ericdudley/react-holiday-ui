@@ -57,7 +57,6 @@ export class Flakes {
      * Steps all flakes.
      */
     public stepAll = (): void => {
-        console.dir(this)
         // Update wind strength.
         this._windTheta += 0.01;
         this._wind.value = Math.abs(2 * Math.pow(Math.sin(this._windTheta), 10));
