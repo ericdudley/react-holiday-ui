@@ -18,6 +18,7 @@ export class Flakes {
     constructor(_ctx: CanvasRenderingContext2D) {
         this._flakes = [];
         this._wind = new ValueRef<number>(0);
+        this._windTheta = 0;
         this._ctx = _ctx;
     }
 
