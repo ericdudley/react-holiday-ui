@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
+    "predeploy": "npm run build",
+    "deploy": "shx rm -rf ../docs && shx cp -r ./build ../docs",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
     "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
   },
@@ -25,7 +27,8 @@
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
     "cpy-cli": "^3.1.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "shx": "^0.3.3"
   },
   "eslintConfig": {
     "extends": "react-app"
