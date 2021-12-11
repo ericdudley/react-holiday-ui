@@ -1,59 +1,45 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
+import { fixedFullscreen } from '../../../util/style';
 import { Flakes } from './Flakes';
 const STEP_DURATION_MS = 50;
 const ADD_FLAKE_INTERVAL_MS = 500;
-const MAX_FLAKES_COUNT = 20000;
 
 
 /**
  * Renders gently falling snowflakes represented by light blue circles that start at the top of the screen and fall to the bottom.
  */
 export const Snowflakes: FunctionComponent = () => {
-    const flakesRef = useRef<Flakes>(new Flakes());
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    
+
     // Set up snowflakes effect
     useEffect(() => {
         const canvas = canvasRef.current;
-        if(!canvas){
+        if (!canvas) {
             return;
         }
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
 
         const ctx = canvas.getContext('2d');
-        if(!ctx){
+        if (!ctx) {
             return;
         }
 
+        const onResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', onResize);
+
+
+
+        const flakes = new Flakes(ctx);
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Creates new flakes a continuous interval
-        const addFlakeInterval = setInterval(() => {
-            const flakes = flakesRef.current!;
-            if(flakes.count < MAX_FLAKES_COUNT){
-                flakes.addRandom(0, canvas.width);
-            }
-            flakes.removeOutOfBounds(canvas.width, canvas.height);
-        }, ADD_FLAKE_INTERVAL_MS);
-
-        // Steps flake positions on a continuous interval
-        const stepInterval = setInterval(() => {
-            if(flakesRef.current){
-                flakesRef.current.stepAll();
-            }
-        }, STEP_DURATION_MS);
-
-        // Draw current flake positions to the canvas in an animation frame loop
+        const addFlakeInterval = setInterval(flakes.addRandom, ADD_FLAKE_INTERVAL_MS);
+        const stepInterval = setInterval(flakes.stepAll, STEP_DURATION_MS);
         const draw = () => {
             ctx.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
-            if(flakesRef.current){
-                flakesRef.current.drawAll(ctx);
-            }
+            flakes.drawAll();
             requestAnimationFrame(draw);
         }
         draw();
@@ -62,15 +48,10 @@ export const Snowflakes: FunctionComponent = () => {
         return () => {
             clearInterval(addFlakeInterval);
             clearInterval(stepInterval);
+            window.removeEventListener('resize', onResize);
         }
     }, []);
 
 
-    return <canvas ref={canvasRef} style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        pointerEvents: 'none',
-        zIndex: 1000,
-    }}></ canvas>
+    return <canvas ref={canvasRef} style={fixedFullscreen()}></ canvas >
 };

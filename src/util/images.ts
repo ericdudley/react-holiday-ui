@@ -1,0 +1,1 @@
+export const SNOWMAN_IMAGE_SRC = 'https://react-holiday-ui.s3.amazonaws.com/snowman.png';

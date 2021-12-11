@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Snowflakes } from 'react-holiday-ui'
+import { Christmas } from 'react-holiday-ui'
 import 'react-holiday-ui/dist/index.css'
 
 const App = () => {
-  return <div><Snowflakes/></div>;
+  return <div><Christmas /></div>;
 }
 
 export default App

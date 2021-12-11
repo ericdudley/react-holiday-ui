@@ -1,4 +1,4 @@
-import { ValueRef } from "./ValueRef";
+import { ValueRef } from "../../../util/ValueRef";
 
 const MIN_FLAKE_SIZE = 2;
 const MAX_FLAKE_SIZE = 5;
@@ -50,9 +50,9 @@ export class Flake {
         this.theta = 0;
         this.xRandom = MIN_RANDOM_FACTOR + Math.random() * (MAX_RANDOM_FACTOR - MIN_RANDOM_FACTOR);
         this.yRandom = MIN_RANDOM_FACTOR + Math.random() * (MAX_RANDOM_FACTOR - MIN_RANDOM_FACTOR);
-        
+
         this.size = size;
-        
+
         this.windRef = windRef;
     }
 
@@ -60,7 +60,7 @@ export class Flake {
         ctx.beginPath();
         ctx.arc(this.x + this.offsetX, this.y + this.offsetY, this.size, 0, 2 * Math.PI, false);
         ctx.fillStyle = FILL_COLOR;
-        ctx.globalAlpha = 0.7;
+        ctx.globalAlpha = 0.5;
         ctx.fill();
         ctx.closePath();
     }
