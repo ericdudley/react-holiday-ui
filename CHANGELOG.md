@@ -8,6 +8,16 @@ Features:
     - New years
     - Valentine's day
 
+## 1.0.2 (2021-12-16)
+
+Fixing issue with transpiled code.
+
+Fixes:
+- Changed tsconfig target from ES5 to ES6
+
+Documentation:
+- Added screenshot to examples section
+
 ## 1.0.1 (2021-12-15)
 
 First feature release!

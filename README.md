@@ -13,6 +13,8 @@ npm install react-holiday-ui
 ## Examples
 See examples at https://ericdudley.github.io/react-holiday-ui
 
+![screenshot](https://raw.githubusercontent.com/ericdudley/react-holiday-ui/main/screenshot.png)
+
 ## Usage
 
 1. Important the holiday component you want to use.
