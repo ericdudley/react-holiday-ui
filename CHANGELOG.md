@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 1.0.2 (work in progress, unreleased)
+## 1.1.0 (work in progress, unreleased)
 
 Features:
 
@@ -8,12 +8,13 @@ Features:
     - New years
     - Valentine's day
 
-## 1.0.2 (2021-12-16)
+## 1.0.3 (2021-12-16)
 
 Fixing issue with transpiled code.
 
 Fixes:
-- Changed tsconfig target from ES5 to ES6
+- Changed tsconfig target from ES5 to ESNEXT
+- Switched to rollup for package bundler.
 
 Documentation:
 - Added screenshot to examples section
