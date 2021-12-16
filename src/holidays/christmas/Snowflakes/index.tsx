@@ -38,7 +38,7 @@ export const Snowflakes: FunctionComponent = () => {
         const addFlakeInterval = setInterval(flakes.addRandom, ADD_FLAKE_INTERVAL_MS);
         const stepInterval = setInterval(flakes.stepAll, STEP_DURATION_MS);
         const draw = () => {
-            ctx.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
+            ctx.clearRect(0, 0, canvas.width || 0, canvas.height || 0);
             flakes.drawAll();
             requestAnimationFrame(draw);
         }

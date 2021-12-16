@@ -4,11 +4,11 @@
     "module": "esnext",
     "lib": [
       "dom",
-      "esnext"
+      "esnext",
     ],
     "moduleResolution": "node",
     "jsx": "react",
-    "target": "ES6",
+    "target": "esnext",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
