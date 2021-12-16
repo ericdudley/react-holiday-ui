@@ -1,4 +1,38 @@
 .snowman-img {
-    width: 4em;
     opacity: 0.5;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 599px) {
+    .snowman-img {
+        width: 96px;
+    }
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+    .snowman-img {
+        width: 128px;
+    }
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+    .snowman-img {
+        width: 160px;
+    }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+    .snowman-img {
+        width: 160px;
+    }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+    .snowman-img {
+        width: 192px;
+    }
 }
